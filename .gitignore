@@ -12,7 +12,7 @@ dist/
 .installed.cfg
 *.egg
 
-# Environments (CRITICAL: Keeps your massive libraries out of GitHub)
+# Environments (CRITICAL: Keeps massive libraries out of GitHub)
 .env
 .venv
 env/
