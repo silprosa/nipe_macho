@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "fynesse"
+name = "nipe_macho"
 version = "0.1.0"
-description = "Template files for performing fynesse pipeline data analysis with python."
-authors = ["Firstname Lastname <emal@domain.here>"]
-maintainers = ["Firstname Lastname <emal@domain.here>"]
+description = "Pothole detection using various YOLO models."
+authors = ["Macrey Bwalei <macreybwalei@gmail.com>"]
+maintainers = ["Macrey Bwalei <macreybwalei@gmail.com>"]
 readme = "README.md"
 license = "MIT"
-keywords = ["data-science", "analysis", "framework", "access", "assess", "address"]
+keywords = ["data-science", "computer-vision", "yolo", "pothole-detection", "fynesse"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -14,24 +14,27 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Scientific/Engineering :: Image Recognition",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-packages = [{include = "fynesse"}]
-include = ["fynesse/defaults.yml"]
+
+packages = [{include = "nipe_macho"}]
+include = ["nipe_macho/defaults.yml"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-pandas = "^2.0.0"
-numpy = "^1.24.0"
+pandas = "2.2.2"
+numpy = "1.26.4"
 jupyter = "^1.0.0"
 matplotlib = "^3.7.0"
 PyYAML = "^6.0.0"
+seaborn = "^0.13.0"
+ultralytics = "8.2.103"
+roboflow = "^1.1.27"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"
@@ -45,13 +48,13 @@ types-pyyaml = "^6.0.12.20250822"
 bokeh = "^3.0.0"
 
 [tool.poetry.urls]
-Homepage = "https://github.com/lawrennd/fynesse_template"
-Repository = "https://github.com/lawrennd/fynesse_template"
-Documentation = "https://github.com/lawrennd/fynesse_template#readme"
-Issues = "https://github.com/lawrennd/fynesse_template/issues"
+Homepage = "https://github.com/silprosa/nipe_macho"
+Repository = "https://github.com/silprosa/nipe_macho.git"
+Documentation = "https://github.com/silprosa/nipe_macho#readme"
+Issues = "https://github.com/silprosa/nipe_macho/issues"
 
 [tool.pytest.ini_options]
-testpaths = ["fynesse/tests"]
+testpaths = ["nipe_macho/tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
@@ -60,7 +63,7 @@ addopts = [
     "--tb=short",
     "--strict-markers",
     "--disable-warnings",
-    "--cov=fynesse",
+    "--cov=nipe_macho",
     "--cov-report=term-missing",
     "--cov-report=html:htmlcov",
 ]
@@ -71,7 +74,7 @@ markers = [
 ]
 
 [tool.coverage.run]
-source = ["fynesse"]
+source = ["nipe_macho"]
 omit = [
     "*/tests/*",
     "*/test_*",
@@ -130,7 +133,10 @@ module = [
     "pandas.*",
     "numpy.*",
     "matplotlib.*",
+    "seaborn.*",
     "jupyter.*",
     "bokeh.*",
+    "ultralytics.*",
+    "roboflow.*"
 ]
 ignore_missing_imports = true
