@@ -29,17 +29,19 @@ jobs:
       uses: actions/cache@v3
       with:
         path: .venv
-        key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+        key: venv-${{ runner.os }}-3.11-${{ hashFiles('**/poetry.lock') }}
     
     - name: Install dependencies
       if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
       run: poetry install --with dev
     
+    # --- UPDATED PATHS BELOW ---
+
     - name: Check code formatting with black
-      run: poetry run black --check fynesse/
+      run: poetry run black --check nipe_macho/ notebooks/
     
     - name: Lint with flake8
-      run: poetry run flake8 fynesse/
+      run: poetry run flake8 nipe_macho/
     
     - name: Type check with mypy
-      run: poetry run mypy fynesse/ --ignore-missing-imports
+      run: poetry run mypy nipe_macho/ --ignore-missing-imports
