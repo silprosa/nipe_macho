@@ -1,7 +1,7 @@
 # Nipe Macho : Automated Road Infrastructure Assessment
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![Ultralytics YOLO](https://img.shields.io/badge/YOLO-v8%20%7C%20v11%20%7C%20v26-orange)](https://github.com/ultralytics/ultralytics)
+[![Ultralytics YOLO](https://img.shields.io/badge/YOLO-v8%20%7C%20v11%20%7C%20v26-purple)](https://github.com/ultralytics/ultralytics)
 
 ## Overview
 
